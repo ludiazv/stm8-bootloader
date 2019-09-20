@@ -1,6 +1,11 @@
 ## Toolchain directory
-HOST_PLAT=linux_x86_64 
-#HOST_PLAT=darwin_x86_64
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
+		HOST_PLAT:=linux_x86_64 
+    endif
+ifeq ($(UNAME_S),Darwin)
+		HOST_PLAT:=darwin_x86_64
+endif
 TOOLCHAIN=toolchain/$(HOST_PLAT)
 
 ## STM8S
