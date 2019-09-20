@@ -1,17 +1,19 @@
 #!/bin/bash
 
-set -ev
+set -e
 echo "=========================================="
 echo "Code location calculator"
 echo "=========================================="
-os_plat= $(uname -s)
+
+os_plat=$(uname -s)
 if [[ "$os_plat" == "Linux" ]] ; then
     STAT_PAR="-L -c %s"
 else
     STAT_PAR="-f %z"
 fi
+
 printf "Boot loader size (bytes):"
-SZ_B=$(stat -f %z main.ihx.bin)
+SZ_B=$(stat ${STAT_PAR} main.ihx.bin)
 echo $SZ_B
 SZ_BL=$(expr $SZ_B / 128)
 t=$(expr $SZ_B % 128)
