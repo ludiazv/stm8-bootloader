@@ -3,7 +3,14 @@
 
 #include "stm8.h"
 
-/* UART configuration */
+/* Enable I2C bootloader with slave addr instead of Serial . Comment to use serial*/
+#define I2C_ADDR    0x22
+/* 16-bit counter for delay boot loader. Comment to use pin based bootloader activation */
+#define DELAY_COUNT  0xFFFF
+
+
+
+/* UART configuration only if serial mode is selected*/
 #define BAUDRATE            115200
 
 #if defined(STM8L)
@@ -15,7 +22,20 @@
 #endif
 
 /* application address */
-#define BOOT_ADDR           0x8280
+//#define BOOT_ADDR           0x8280
+#define BOOT_ADDR           0x8300
+
+/* FLASH LED */
+#define FLASH_PIN          3
+#define FLASH_PIN_DDR      PD_DDR
+#define FLASH_PIN_ODR      PD_ODR
+#define FLASH_PIN_CR1      PD_CR1
+#if defined(FLASH_PIN)
+    #define FLASH_LED()       (FLASH_PIN_ODR ^= (1<< FLASH_PIN) )
+#else
+    #define FLASH_LED()       ((void)0)
+#endif
+
 
 /*
  * 0 = overwrite vector table during update,
@@ -27,7 +47,7 @@
 #define BLOCK_SIZE          64
 
 /* entry jumper */
-#define BOOT_PIN            3
+#define BOOT_PIN            4
 #define BOOT_PIN_IDR        PD_IDR
 #define BOOT_PIN_CR1        PD_CR1
 

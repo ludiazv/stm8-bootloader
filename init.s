@@ -1,6 +1,7 @@
 .module INIT
 .macro jump addr
-    jp 0x8280 + addr
+    ;jp 0x8280 + addr
+    jp  0x8300 + addr
     .ds 1
 .endm
 
