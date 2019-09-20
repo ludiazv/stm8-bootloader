@@ -3,5 +3,5 @@ language: python
 python:
   - "3.7"
 
-script: python get_toolchain.py && make && cd app && make
+script: python get_toolchain.py install && make && cd app && make
 

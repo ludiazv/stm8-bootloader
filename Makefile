@@ -1,6 +1,6 @@
 ## Toolchain directory
-# HOST_PLAT=linux_x86_64 
-HOST_PLAT=darwin_x86_64
+HOST_PLAT=linux_x86_64 
+#HOST_PLAT=darwin_x86_64
 TOOLCHAIN=toolchain/$(HOST_PLAT)
 
 ## STM8S
