@@ -1,4 +1,5 @@
-# stm8-bootloader
+# stm8-bootloader 
+[![Build Status](https://travis-ci.org/ludiazv/stm8-bootloader.svg?branch=master)](https://travis-ci.org/ludiazv/stm8-bootloader)
 
 Enhanced version of @lujji bootloader for STM8 supporting delay activation,led flash and i2c programming.
 
