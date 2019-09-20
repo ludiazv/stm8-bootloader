@@ -1,9 +1,10 @@
 #include <stdint.h>
 #include "../stm8.h"
 
-#define LED_PIN  4
+#define LED_PIN  3
 
 void dummy_isr() __interrupt(29) __naked { ; }
+
 
 void tim4_isr() __interrupt(TIM4_ISR) {
     static uint16_t ctr = 0;
