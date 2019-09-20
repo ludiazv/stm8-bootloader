@@ -172,6 +172,8 @@
 #define I2C_SR1_BTF             2
 #define I2C_SR1_ADDR            1
 #define I2C_SR1_SB              0
+#define I2C_SR1_ADD10           3
+#define I2C_SR1_STOPF           4
 #define I2C_SR2                 _SFR_(0x218)
 #define I2C_SR3                 _SFR_(0x219)
 #define I2C_SR3_BUSY            1
